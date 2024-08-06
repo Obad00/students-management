@@ -1,0 +1,15 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Student;
+
+class StudentSeeder extends Seeder
+{
+    public function run()
+    {
+        Student::factory(10)->create(); // Crée 10 étudiants fictifs
+    }
+}
+

@@ -59,6 +59,19 @@ namespace App\Http\Controllers\Annotations ;
  * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
+ *     @OA\RequestBody(
+ *         required=true,
+ *         @OA\MediaType(
+ *             mediaType="multipart/form-data",
+ *             @OA\Schema(
+ *                 type="object",
+ *                 properties={
+ *                     @OA\Property(property="email", type="string"),
+ *                     @OA\Property(property="password", type="string"),
+ *                 },
+ *             ),
+ *         ),
+ *     ),
  *     tags={"Authentification"},
 *),
 

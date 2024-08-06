@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('libelle');
             $table->date('date_debut');
             $table->date('date_fin');
+            $table->foreignId('ue_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,7 +17,10 @@ class UEFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'libelle' => $this->faker->word,
+            'date_debut' => $this->faker->date,
+            'date_fin' => $this->faker->date,
+            'coef' => $this->faker->randomFloat(2, 1, 5),
         ];
     }
 }

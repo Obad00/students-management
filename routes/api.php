@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\GradeController;
 
+// Routes pour l'authentification
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
+
 // Route protégée pour obtenir les informations de l'utilisateur authentifié
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -21,8 +25,3 @@ Route::middleware('auth:api')->group(function () {
 Route::middleware('auth:api')->group(function () {
     Route::apiResource('grades', GradeController::class);
 });
-
-// Routes pour l'authentification
-Route::post('login', [AuthController::class, 'login']);
-Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
-

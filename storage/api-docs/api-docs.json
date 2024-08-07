@@ -61,16 +61,6 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
-                        "type": "string"
-                    },
-                    {
                         "in": "header",
                         "name": "User-Agent",
                         "type": "string"
@@ -123,16 +113,6 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
-                        "type": "string"
-                    },
-                    {
                         "in": "header",
                         "name": "User-Agent",
                         "type": "string"
@@ -165,7 +145,7 @@
                 }
             }
         },
-        "/api/grades/1": {
+        "/api/grades/{id}": {
             "get": {
                 "summary": "Récuperer une note",
                 "description": "",
@@ -204,12 +184,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
+                        "name": "id",
                         "type": "string"
                     },
                     {
@@ -257,12 +232,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
+                        "name": "id",
                         "type": "string"
                     },
                     {
@@ -344,12 +314,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
+                        "name": "id",
                         "type": "string"
                     },
                     {
@@ -385,7 +350,7 @@
                 }
             }
         },
-        "/api/students/1": {
+        "/api/students/{id}": {
             "put": {
                 "summary": "Modifier un etudiant",
                 "description": "",
@@ -424,12 +389,12 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "email",
+                        "name": "id",
                         "type": "string"
                     },
                     {
                         "in": "path",
-                        "name": "password",
+                        "name": "",
                         "type": "string"
                     },
                     {
@@ -518,12 +483,64 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "email",
+                        "name": "id",
                         "type": "string"
                     },
                     {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Supprimer un étudiant",
+                "description": "",
+                "responses": {
+                    "204": {
+                        "description": "Deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD-Etudiant"
+                ],
+                "parameters": [
+                    {
                         "in": "path",
-                        "name": "password",
+                        "name": "id",
                         "type": "string"
                     },
                     {
@@ -580,16 +597,6 @@
                     "CRUD-Etudiant"
                 ],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
-                        "type": "string"
-                    },
                     {
                         "in": "header",
                         "name": "User-Agent",
@@ -692,7 +699,7 @@
                 ]
             }
         },
-        "/api/students/10/restore": {
+        "/api/students/{id}/restore": {
             "patch": {
                 "summary": "Restaurer un étudiant",
                 "description": "",
@@ -731,76 +738,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
-                        "type": "string"
-                    },
-                    {
-                        "in": "header",
-                        "name": "User-Agent",
-                        "type": "string"
-                    }
-                ]
-            }
-        },
-        "/api/students/10": {
-            "delete": {
-                "summary": "Supprimer un étudiant",
-                "description": "",
-                "responses": {
-                    "204": {
-                        "description": "Deleted successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {},
-                                "example": ""
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "content": {
-                            "application/json": {
-                                "schema": {},
-                                "example": ""
-                            }
-                        }
-                    },
-                    "403": {
-                        "description": "Forbidden",
-                        "content": {
-                            "application/json": {
-                                "schema": {},
-                                "example": ""
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Not Found",
-                        "content": {
-                            "application/json": {
-                                "schema": {},
-                                "example": ""
-                            }
-                        }
-                    }
-                },
-                "tags": [
-                    "CRUD-Etudiant"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "email",
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "password",
+                        "name": "id",
                         "type": "string"
                     },
                     {

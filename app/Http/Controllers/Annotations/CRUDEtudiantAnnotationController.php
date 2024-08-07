@@ -26,7 +26,7 @@ namespace App\Http\Controllers\Annotations ;
  *
 
  * @OA\PUT(
- *     path="/api/students/1",
+ *     path="/api/students/{id}",
  *     summary="Modifier un etudiant",
  *     description="",
  *         security={
@@ -35,9 +35,9 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="200", description="OK"),
  * @OA\Response(response="404", description="Not Found"),
  * @OA\Response(response="500", description="Internal Server Error"),
- *     @OA\Parameter(in="path", name="email", required=false, @OA\Schema(type="string")
+ *     @OA\Parameter(in="path", name="id", required=false, @OA\Schema(type="string")
  * ),
- *     @OA\Parameter(in="path", name="password", required=false, @OA\Schema(type="string")
+ *     @OA\Parameter(in="path", name="", required=false, @OA\Schema(type="string")
  * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
@@ -64,7 +64,7 @@ namespace App\Http\Controllers\Annotations ;
 
 
  * @OA\GET(
- *     path="/api/students/1",
+ *     path="/api/students/{id}",
  *     summary="Récuperer un étudiant",
  *     description="",
  *         security={
@@ -73,9 +73,26 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="200", description="OK"),
  * @OA\Response(response="404", description="Not Found"),
  * @OA\Response(response="500", description="Internal Server Error"),
- *     @OA\Parameter(in="path", name="email", required=false, @OA\Schema(type="string")
+ *     @OA\Parameter(in="path", name="id", required=false, @OA\Schema(type="string")
  * ),
- *     @OA\Parameter(in="path", name="password", required=false, @OA\Schema(type="string")
+ *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
+ * ),
+ *     tags={"CRUD-Etudiant"},
+*),
+
+
+ * @OA\DELETE(
+ *     path="/api/students/{id}",
+ *     summary="Supprimer un étudiant",
+ *     description="",
+ *         security={
+ *    {       "BearerAuth": {}}
+ *         },
+ * @OA\Response(response="204", description="Deleted successfully"),
+ * @OA\Response(response="401", description="Unauthorized"),
+ * @OA\Response(response="403", description="Forbidden"),
+ * @OA\Response(response="404", description="Not Found"),
+ *     @OA\Parameter(in="path", name="id", required=false, @OA\Schema(type="string")
  * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
@@ -94,10 +111,6 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="400", description="Bad Request"),
  * @OA\Response(response="401", description="Unauthorized"),
  * @OA\Response(response="403", description="Forbidden"),
- *     @OA\Parameter(in="path", name="email", required=false, @OA\Schema(type="string")
- * ),
- *     @OA\Parameter(in="path", name="password", required=false, @OA\Schema(type="string")
- * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
  *     @OA\RequestBody(
@@ -143,7 +156,7 @@ namespace App\Http\Controllers\Annotations ;
 
 
  * @OA\PATCH(
- *     path="/api/students/10/restore",
+ *     path="/api/students/{id}/restore",
  *     summary="Restaurer un étudiant",
  *     description="",
  *         security={
@@ -152,30 +165,7 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="200", description="OK"),
  * @OA\Response(response="404", description="Not Found"),
  * @OA\Response(response="500", description="Internal Server Error"),
- *     @OA\Parameter(in="path", name="email", required=false, @OA\Schema(type="string")
- * ),
- *     @OA\Parameter(in="path", name="password", required=false, @OA\Schema(type="string")
- * ),
- *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
- * ),
- *     tags={"CRUD-Etudiant"},
-*),
-
-
- * @OA\DELETE(
- *     path="/api/students/10",
- *     summary="Supprimer un étudiant",
- *     description="",
- *         security={
- *    {       "BearerAuth": {}}
- *         },
- * @OA\Response(response="204", description="Deleted successfully"),
- * @OA\Response(response="401", description="Unauthorized"),
- * @OA\Response(response="403", description="Forbidden"),
- * @OA\Response(response="404", description="Not Found"),
- *     @OA\Parameter(in="path", name="email", required=false, @OA\Schema(type="string")
- * ),
- *     @OA\Parameter(in="path", name="password", required=false, @OA\Schema(type="string")
+ *     @OA\Parameter(in="path", name="id", required=false, @OA\Schema(type="string")
  * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
